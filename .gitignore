@@ -1,0 +1,24 @@
+# Eclipse
+.classpath
+.project
+.settings/
+ 
+# Intellij
+.idea/
+*.iml
+*.iws
+api/target/**
+api/api.iml
+
+rest/target/**
+rest/rest.iml
+
+service/target/**
+service/service.iml
+
+# Mac
+.DS_Store
+ 
+# Maven
+log/
+target/
