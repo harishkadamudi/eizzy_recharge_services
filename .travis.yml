@@ -12,5 +12,4 @@ addons:
       secure: $SONAR_TOKEN
 
 script:
-  mvn clean test -B
   mvn clean package sonar:sonar
