@@ -22,3 +22,6 @@ service/service.iml
 # Maven
 log/
 target/
+*.log
+
+#sonar key - b4c2ace8303be44d523931dc0b72fcdd9cce557f
