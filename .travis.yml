@@ -28,7 +28,7 @@ services:
   - docker
 
 after_success:
-  - docker login -u $DOCKER_USER -p $DOCKER_PASS
+  - docker login -u $dockeruser -p $dockerpassword
   - export TAG=`if [ "$TRAVIS_BRANCH" == "develop" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
   - export IMAGE_NAME=harishkadamui/recharge
   - docker build -t $IMAGE_NAME:$COMMIT .
