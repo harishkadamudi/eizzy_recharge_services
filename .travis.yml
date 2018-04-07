@@ -35,7 +35,7 @@ jobs:
     - stage: build docker image
       script:
       - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-      - docker build -t eizzy-recharge_rest:latest .
+      - docker build -t eizzy-recharge_rest:latest -f Dockerfile
       - docker images
       - docker tag eizzy-recharge_rest $DOCKER_USERNAME/eizzy-recharge_rest
       - docker push $DOCKER_USERNAME/eizzy-recharge_rest
