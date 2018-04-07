@@ -37,7 +37,7 @@ jobs:
       script:
       - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
       - docker images
-      - docker build -t com.eizzy.recharge.rest:latest -f Dockerfile
+      - docker build -t com.eizzy.recharge.rest:latest -f Dockerfile .
       - docker images
       - docker tag eizzy-recharge_rest $DOCKER_USERNAME/eizzy-recharge_rest
       - docker push $DOCKER_USERNAME/eizzy-recharge_rest
