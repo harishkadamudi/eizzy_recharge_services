@@ -31,24 +31,24 @@ services:
   - docker
 
 #dist: trusty
-jobs:
-  include:
-    - stage: build docker image
-      script:
-      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-      - docker images
-      - docker build -t com.eizzy.recharge.rest:latest -f Dockerfile .
-      - docker images
-      - docker tag eizzy-recharge_rest $DOCKER_USERNAME/eizzy-recharge_rest
-      - docker push $DOCKER_USERNAME/eizzy-recharge_rest
+#jobs:
+#  include:
+#    - stage: build docker image
+#      script:
+#      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+#      - docker images
+#      - docker build -t com.eizzy.recharge.rest:latest -f Dockerfile .
+#      - docker images
+#      - docker tag eizzy-recharge_rest $DOCKER_USERNAME/eizzy-recharge_rest
+#      - docker push $DOCKER_USERNAME/eizzy-recharge_rest
     #- stage: test
     #  script: docker run --rm $DOCKER_USERNAME/travis-ci-build-stages-demo cat hello.txt
     #- script: docker run --rm $DOCKER_USERNAME/travis-ci-build-stages-demo cat hello.txt
 
-#after_success:
-#  - docker login -u $dockeruser -p $dockerpassword
-#  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
-#  - export IMAGE_NAME=harishkadamui/recharge
-#  - docker build -t $IMAGE_NAME:$COMMIT -f Dockerfile .
-#  - docker tag $IMAGE_NAME:$COMMIT $IMAGE_NAME:$TAG
-#  - docker push $IMAGE_NAME
+after_success:
+  - docker login -u $dockeruser -p $dockerpassword#
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "develop" || "$TRAVIS_BRANCH" == "master"]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
+  - export IMAGE_NAME=harishkadamui/recharge-rest
+  - docker build -t $IMAGE_NAME:$COMMIT -f Dockerfile .
+  - docker tag $IMAGE_NAME:$COMMIT $IMAGE_NAME:$TAG
+  - docker push $IMAGE_NAME
