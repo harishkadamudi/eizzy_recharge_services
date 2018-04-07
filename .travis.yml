@@ -1,6 +1,6 @@
 language: java
 jdk: oraclejdk8
-
+install: true
 env:
   global:
   - secure: "uMjedZD3EUoSP8Mj7L2IgYRy0rOvvuJfIx9GYlx13u2j4Zj8c+zTBRGpkldqx4rvNweqejgCLnkrwc2fS4X6GtpE4nab43141QicCv/hhqzQVN3Z+5mcW6r+kSBqgwfwgvnrcj0kNnPXje7rF/D5Wuw7BHCV3Vmcl7DZ2EnNVe0j/AMQMefMrf/d1X14rwNvAnO2B9ngaJET9txgVeTAjFUaAPA+83v2XGGPbYrgEkHdVO5HikHwEfyeB4mWgCCj9LLg/HyoEewt9Nt6kMtzuXYGNarypUqoCqinzch87BrrQZAb9esTZo8+pjROsficeboiWrEI0zQObYPxQVvuv2stDh85W8Z80VsSHj/9J7VDljSTzQTHdWVfa2DVpH0BHJdqCVgVy6+AXshWIyKeIZUbcWQfkd73Edql8CA9+k+docYc8GB5KnsKzq7/czvpiBEFVwCEbwLhuLr0Ag3HfgEoM3y+J25VXuBOqTGugihhXnpwoxj4oNAMNl8tWQHD04Wv1iKirJjXAZGUp0Q1grhElKxivDqdKBbvBdL/fMyiOQEOBtv6UZe1BcV8fVru9JhdIpEh1BgOUpENA6Cu4jKEgFgNMCphR9Au8c2QkvlZfwlocwm/txjLrRUpLGcnpdCY2lrvoLdBxas/urTX51mlTKGoVhnvd4WbR9dq9/I="
@@ -12,4 +12,9 @@ addons:
       secure: $SONAR_TOKEN
 
 script:
-  mvn clean package sonar:sonar
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
+
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
