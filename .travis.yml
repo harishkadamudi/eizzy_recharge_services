@@ -15,7 +15,6 @@ addons:
     token:
       secure: $SONAR_TOKEN
     branches:
-      - master
       - develop
 
 script:
@@ -37,8 +36,3 @@ after_success:
   - docker build -t $IMAGE_NAME:$COMMIT .
   - docker tag $IMAGE_NAME:$COMMIT $IMAGE_NAME:$TAG
   - docker push $IMAGE_NAME
-deploy:
-  provider: script
-  script: docker push "${IMAGE_NAME}:latest"
-  on:
-    branch: develop
