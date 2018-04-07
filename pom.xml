@@ -162,6 +162,12 @@
                         </goals>
                     </execution>
                     <execution>
+                        <id>default-report-integration</id>
+                        <goals>
+                            <goal>report-integration</goal>
+                        </goals>
+                    </execution>
+                    <execution>
                         <id>default-check</id>
                         <goals>
                             <goal>check</goal>

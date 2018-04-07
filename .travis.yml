@@ -8,7 +8,7 @@ env:
 
 addons:
   sonarcloud:
-    organization: Harish Kadamudi
+    organization: harishkadamudi-github
     token:
       secure: $SONAR_TOKEN
 
