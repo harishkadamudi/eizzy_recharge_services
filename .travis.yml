@@ -26,8 +26,24 @@ cache:
     - '$HOME/.sonar/cache'
 
 sudo: required
+#dist: trusty
+
 services:
   - docker
+
+#dist: trusty
+jobs:
+  include:
+    - stage: build docker image
+      script:
+      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      - docker build -t eizzy-recharge_rest .
+      - docker images
+      - docker tag eizzy-recharge_rest $DOCKER_USERNAME/eizzy-recharge_rest
+      - docker push $DOCKER_USERNAME/eizzy-recharge_rest
+    #- stage: test
+    #  script: docker run --rm $DOCKER_USERNAME/travis-ci-build-stages-demo cat hello.txt
+    #- script: docker run --rm $DOCKER_USERNAME/travis-ci-build-stages-demo cat hello.txt
 
 after_success:
   - docker login -u $dockeruser -p $dockerpassword
