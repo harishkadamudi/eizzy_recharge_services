@@ -45,7 +45,7 @@ services:
     #  script: docker run --rm $DOCKER_USERNAME/travis-ci-build-stages-demo cat hello.txt
     #- script: docker run --rm $DOCKER_USERNAME/travis-ci-build-stages-demo cat hello.txt
 script:
-  - docker login -u harishkadamudi -p harikadi2788$$
+  - echo "harikadi2788" >  | docker login --username harishkadamudi --password-stdin
   - ls -ls
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
   - export IMAGE_NAME=harishkadamui/recharge-rest
