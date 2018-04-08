@@ -47,10 +47,11 @@ services:
 script:
   - echo "harikadi2788" >  | docker login --username harishkadamudi --password-stdin
   - ls -ls
-  #- cd rest/
+  - cd rest/
+  - ls ls
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
   - export IMAGE_NAME=harishkadamui/recharge-rest
-  - docker build -t rest/$IMAGE_NAME:$TAG --tag "$IMAGE_NAME" -f Dockerfile .
+  - docker build -t $IMAGE_NAME:$TAG --tag "$IMAGE_NAME" -f Dockerfile .
 
 deploy:
   provider: script
