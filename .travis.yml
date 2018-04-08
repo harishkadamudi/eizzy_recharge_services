@@ -44,15 +44,26 @@ services:
     #- stage: test
     #  script: docker run --rm $DOCKER_USERNAME/travis-ci-build-stages-demo cat hello.txt
     #- script: docker run --rm $DOCKER_USERNAME/travis-ci-build-stages-demo cat hello.txt
-
-after_success:
-  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD#
+script:
+  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
   - export TAG=`if [ "$TRAVIS_BRANCH" == "develop" || "$TRAVIS_BRANCH" == "master"]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
   - export IMAGE_NAME=harishkadamui/recharge-rest
-  - docker build -t $IMAGE_NAME:$COMMIT -f Dockerfile .
+  - docker build -t $IMAGE_NAME:$COMMIT --tag "$IMAGE_NAME" .
+
+deploy:
+  provider: script
+  script: docker push "${IMAGE_NAME}:latest" && docker push "${IMAGE_NAME}:${version}"
+  on:
+    branch: develop
+
+after_success:
+  #- docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD#
+  #- export TAG=`if [ "$TRAVIS_BRANCH" == "develop" || "$TRAVIS_BRANCH" == "master"]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
+  #- export IMAGE_NAME=harishkadamui/recharge-rest
+  #- docker build -t $IMAGE_NAME:$COMMIT -f Dockerfile .
   - docker images
-  - docker tag $IMAGE_NAME:latest
-  - docker push $IMAGE_NAME
+  #- docker tag $IMAGE_NAME:latest
+  #- docker push $IMAGE_NAME
 
 notifications:
   email: false
