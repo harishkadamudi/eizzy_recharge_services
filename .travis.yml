@@ -45,10 +45,11 @@ services:
     #  script: docker run --rm $DOCKER_USERNAME/travis-ci-build-stages-demo cat hello.txt
     #- script: docker run --rm $DOCKER_USERNAME/travis-ci-build-stages-demo cat hello.txt
 script:
-  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-  - export TAG=`if [ "$TRAVIS_BRANCH" == "develop" || "$TRAVIS_BRANCH" == "master"]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
+  - docker login -u harishkadamudi -p harikadi2788$$
+  - ls -ls
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
   - export IMAGE_NAME=harishkadamui/recharge-rest
-  - docker build -t $IMAGE_NAME:$COMMIT --tag "$IMAGE_NAME" .
+  - docker build -t $IMAGE_NAME:$COMMIT --tag "$IMAGE_NAME" -f Dockerfile.
 
 deploy:
   provider: script
