@@ -49,7 +49,7 @@ script:
   - ls -ls
   - cd rest/
   - ls -ls
-  - docker run maven:3.3-jdk-8 mvn clean install
+  - mvn clean install
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
   - export IMAGE_NAME=harishkadamui/recharge-rest
   - docker build -t $IMAGE_NAME:$TAG --tag "$IMAGE_NAME" -f Dockerfile .
