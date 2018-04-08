@@ -76,7 +76,8 @@
                 <configuration>
                     <skip>false</skip>
                     <!--<contextDirectory>docker</contextDirectory>-->
-                    <repository>eizzy/recharge</repository>
+                    <repository>eizzy/recharge-rest</repository>
+                    <buildDirectory>target/</buildDirectory>
                     <tag>${project.version}</tag>
                     <buildArgs>
                         <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
