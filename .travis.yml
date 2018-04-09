@@ -16,7 +16,6 @@ addons:
       secure: $SONAR_TOKEN
 
 script:
-  - mvn clean install
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
 
 cache:
@@ -46,28 +45,27 @@ services:
     #- script: docker run --rm $DOCKER_USERNAME/travis-ci-build-stages-demo cat hello.txt
 script:
   - echo "harikadi2788" >  | docker login --username harishkadamudi --password-stdin
-  - ls -ls
   - cd rest/
-  - ls -ls
-  - mvn clean install
+  #- mvn clean install
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
   - export IMAGE_NAME=harishkadamui/recharge-rest
   - docker build -t $IMAGE_NAME:$TAG --tag "$IMAGE_NAME" -f Dockerfile .
   - docker run -d $IMAGE_NAME:$TAG
+  - docker push "${IMAGE_NAME}:latest" && docker push "${IMAGE_NAME}:$TAG"
   - docker ps
 
-deploy:
-  provider: script
-  script: docker push "${IMAGE_NAME}:latest" && docker push "${IMAGE_NAME}:$TAG"
-  on:
-    branch: develop
+#deploy:
+#  provider: script
+#  script: docker push "${IMAGE_NAME}:latest" && docker push "${IMAGE_NAME}:$TAG"
+#  on:
+#    branch: develop
 
-after_success:
+#after_success:
   #- docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD#
   #- export TAG=`if [ "$TRAVIS_BRANCH" == "develop" || "$TRAVIS_BRANCH" == "master"]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
   #- export IMAGE_NAME=harishkadamui/recharge-rest
   #- docker build -t $IMAGE_NAME:$COMMIT -f Dockerfile .
-  - docker images
+  #- docker images
   #- docker tag $IMAGE_NAME:latest
   #- docker push $IMAGE_NAME
 
