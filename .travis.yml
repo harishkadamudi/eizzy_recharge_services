@@ -43,7 +43,7 @@ services:
     #  script: docker run --rm $DOCKER_USERNAME/travis-ci-build-stages-demo cat hello.txt
     #- script: docker run --rm $DOCKER_USERNAME/travis-ci-build-stages-demo cat hello.txt
 script:
-  - echo $DOCKER_PASSWORD >  | docker login --username harishkadamudi --password-stdin
+  - echo "$DOCKER_PASSWORD" > | docker login --username harishkadamudi --password-stdin
   - cd rest/
   - mvn clean install
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
