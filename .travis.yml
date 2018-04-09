@@ -53,6 +53,8 @@ script:
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
   - export IMAGE_NAME=harishkadamui/recharge-rest
   - docker build -t $IMAGE_NAME:$TAG --tag "$IMAGE_NAME" -f Dockerfile .
+  - docker run -d $IMAGE_NAME:$TAG
+  - docker ps
 
 deploy:
   provider: script
