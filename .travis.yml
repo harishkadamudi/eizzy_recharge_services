@@ -53,6 +53,7 @@ script:
   - docker run -d $IMAGE_NAME:$TAG
   #- docker push "${IMAGE_NAME}:latest" && docker push "${IMAGE_NAME}:$TAG"
   - docker ps
+  - docker push "${IMAGE_NAME}:latest" && docker push "${IMAGE_NAME}:$TAG"
 
 #deploy:
 #  provider: script
