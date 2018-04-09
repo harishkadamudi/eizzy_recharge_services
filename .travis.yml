@@ -43,14 +43,15 @@ services:
     #  script: docker run --rm $DOCKER_USERNAME/travis-ci-build-stages-demo cat hello.txt
     #- script: docker run --rm $DOCKER_USERNAME/travis-ci-build-stages-demo cat hello.txt
 script:
-  - echo "$DOCKER_PASSWORD" > | docker login --username harishkadamudi --password-stdin
+  #- echo "$DOCKER_PASSWORD" > | docker login --username harishkadamudi --password-stdin
+  - docker login --username harishkadamudi --password $DOCKER_PASSWORD
   - cd rest/
   - mvn clean install
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
   - export IMAGE_NAME=harishkadamui/eizzy-recharge-rest
   - docker build -t $IMAGE_NAME:$TAG --tag "$IMAGE_NAME" -f Dockerfile .
   - docker run -d $IMAGE_NAME:$TAG
-  - docker push "${IMAGE_NAME}:latest" && docker push "${IMAGE_NAME}:$TAG"
+  #- docker push "${IMAGE_NAME}:latest" && docker push "${IMAGE_NAME}:$TAG"
   - docker ps
 
 #deploy:
@@ -59,14 +60,14 @@ script:
 #  on:
 #    branch: develop
 
-#after_success:
+after_success:
   #- docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD#
   #- export TAG=`if [ "$TRAVIS_BRANCH" == "develop" || "$TRAVIS_BRANCH" == "master"]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
   #- export IMAGE_NAME=harishkadamui/recharge-rest
   #- docker build -t $IMAGE_NAME:$COMMIT -f Dockerfile .
   #- docker images
   #- docker tag $IMAGE_NAME:latest
-  #- docker push $IMAGE_NAME
+  - docker push $IMAGE_NAME:latest
 
 notifications:
   email: false
