@@ -6,8 +6,7 @@ install: true
 env:
   global:
   - secure: "uMjedZD3EUoSP8Mj7L2IgYRy0rOvvuJfIx9GYlx13u2j4Zj8c+zTBRGpkldqx4rvNweqejgCLnkrwc2fS4X6GtpE4nab43141QicCv/hhqzQVN3Z+5mcW6r+kSBqgwfwgvnrcj0kNnPXje7rF/D5Wuw7BHCV3Vmcl7DZ2EnNVe0j/AMQMefMrf/d1X14rwNvAnO2B9ngaJET9txgVeTAjFUaAPA+83v2XGGPbYrgEkHdVO5HikHwEfyeB4mWgCCj9LLg/HyoEewt9Nt6kMtzuXYGNarypUqoCqinzch87BrrQZAb9esTZo8+pjROsficeboiWrEI0zQObYPxQVvuv2stDh85W8Z80VsSHj/9J7VDljSTzQTHdWVfa2DVpH0BHJdqCVgVy6+AXshWIyKeIZUbcWQfkd73Edql8CA9+k+docYc8GB5KnsKzq7/czvpiBEFVwCEbwLhuLr0Ag3HfgEoM3y+J25VXuBOqTGugihhXnpwoxj4oNAMNl8tWQHD04Wv1iKirJjXAZGUp0Q1grhElKxivDqdKBbvBdL/fMyiOQEOBtv6UZe1BcV8fVru9JhdIpEh1BgOUpENA6Cu4jKEgFgNMCphR9Au8c2QkvlZfwlocwm/txjLrRUpLGcnpdCY2lrvoLdBxas/urTX51mlTKGoVhnvd4WbR9dq9/I="
-  - secure: "BFIMfkzcWCjA+6TjHvNCKfTOZCsK+j22Z3/364dZZpIa5m1fg1f31J4rAYrvQgWzFgZ0df4M4H6ayHpoDHlEVIYradk0y5hZunQ730P/2B+Vot8fSTjP4JaQ8gJ4dZrbcLc2eaSs3f8LHafOxAedRKTXthOTDJzEyUFAyq7yK/lo+TRT2KVovIZKqt0JLwqnF/jZtYTTj3cL8uEWWN8pD3eUhfTJbdVpAau7zZHVUCPe+HaOEPHp0JJ9LIdHJmh3v8aNrXOifNVkkNlUWFAmme5IBHFimfldlXy+Vkdou/vDSJr+Si2EtGzoRLzORqMs/Ws5aAIWqjidx01vB2Fbu17JKNHjCJzYpwZwdXzhXDFqRZLT9O2WvppYgfU2LSjKkkDQiIBBVMdlYjDQlY3DD970FrwS3bZEpQ9Etd24yEcdUGKfu5ZTsqDLTgo9+OlDsRlmGe3fhyNZSXaoCxpt/Z0P08O2DVQrYLjI+lmmsj/rbXVI+6F4ttPyb+f/Y1ZkZK3Fdy/J+5z9kiGdO6NUKWqCho+cFyFKUsF5js7Xpv6BLjXni4rTiiEXlAG/bAyFMOLe9PJ4tDKp9B1R3r3Ah1WnhnK9G35uoA/wV7jPCHivqfW3aCqfpyopog60z1rImTm35g9vwICmtUvyqnSg0XClzYTX/FPjGq+wxww3LjQ="
-  - secure: "rrGIYUlDFB/S43dyImkjl0KydTEJIqSsB8StFX4UwOv6RBv+F3wFbXXLbEFpjYc98bcWOVejvxZ/b6Ox8DNefhY/DHX/h4RHLmISPsDcStgTz4YmqRdhiYylSdP1WzNn2CUPBjsV/57Tk3qNnZ7CS/DhzzGGZIODzR779WuCHK+9Zi31xHQZMC1NVOHWk2mBcibFoACE0R7wOqwIqfSOARBY1Fp61NBFnQHdmreQE/zUyhmmP6yFwBx4Ef/QcV/q0UJiwOPSqsP/BqwgyX7rMw1FZMYvKr2iJfHAAZuexGSwoFw1lwJ4wSfz3dsfy6QGePs1TuTzEc+YcyQdcvDZVYymfl3xtO/n6EWWoGNiwvP9HdT7GgDhYtdAOX+EcKA/6Tdi8ZlCy+mMBwG6gJBE5MoJFmCYKpXG51UxOZhyBzrdCO3EY+DU1RvVJAzLVvhBtSqgfDQAMT2Os6AQMhMNelHaNDFUgBfJ43jZcEE5Cps+Nu/UKnMgd8jT0wAx4PgiInBLb9+o898/Fa0Agwix7WAzwryYwaRIvWEifUmCQ1tHtzAVmwlYpLQKJo57uvrdqQ6JWs751jayROwMJZXrYxLxJ3oUn5M9pmrtbspMGQduT+KXqV6V5XKfn67xpjlEjvqXuf4n6afjxaRWRN3jomGPt7VCTVyCazdvGUCrfXg="
+  - secure: "mruPIC8Zioj3jq29Vd1wXULtPk24I3+jKEfPpwF1NX5W9L28/lvQD9ErPJAOLbAT3aNwEVEn5jSnzJ6nJGxqwUky6z0+Y1ccaCfSl4/hH2ddNcKqVh1O39V4iobqyUayX/SqMUD8oa0X4jOp0AtnWfB3AzxzNXVUjOxHvwQ7zfM1tWPg1DqBSTWGD4vtNIctvaM0kXZV5SIPjFHesfA6Tubm4ZImB4Wopa0pjIptok55NzpWSyugDZD3HFgJlRLG89fWBYlojS+nwtTc8sU6Y+r81mkIqXfwFe7ALnP+2EcJal9IMaQRD9pANcU7b1Jw+R1TGOfKbDiEA/+W507tMqD6jbFhoy8AbSQ2YR1XA+ug6YnHbKEoePTA1G/0ncQ13CwtKV9lRSWJr62wUQb45JAH5DUFH/jZ2JnIpVNWglbdAqRqJX8eWx12n3efp2dcLbrZIyZz6SVrtIiam09a4LUFh/cey3lX7oShcotqEtSlfomXTHDKF9WKGJ8M6aDPLevYaVws4q1CMDD96ml1oiQa1M6zKT/LV7bIgXkgNU0apDKP3mQbpTdDnah6NEJCU+o695UeTTi7uT1YHjBm8qHPXf4/nLnvNxYn30pnGSiuG2DrdDl1m7npUSSrpLOCB5jAKnhLz5VlN9n1mRdMQfQvRbrMtUQIz/58GkLh03Q="
   - COMMIT: ${TRAVIS_COMMIT::7}
 addons:
   sonarcloud:
@@ -44,11 +43,11 @@ services:
     #  script: docker run --rm $DOCKER_USERNAME/travis-ci-build-stages-demo cat hello.txt
     #- script: docker run --rm $DOCKER_USERNAME/travis-ci-build-stages-demo cat hello.txt
 script:
-  - echo "harikadi2788" >  | docker login --username harishkadamudi --password-stdin
+  - echo $DOCKER_PASSWORD >  | docker login --username harishkadamudi --password-stdin
   - cd rest/
   - mvn clean install
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
-  - export IMAGE_NAME=harishkadamui/recharge-rest
+  - export IMAGE_NAME=harishkadamui/eizzy-recharge-rest
   - docker build -t $IMAGE_NAME:$TAG --tag "$IMAGE_NAME" -f Dockerfile .
   - docker run -d $IMAGE_NAME:$TAG
   - docker push "${IMAGE_NAME}:latest" && docker push "${IMAGE_NAME}:$TAG"
